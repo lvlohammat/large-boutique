@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'بوتیک لارج',
         ),
       ),
-      body: const HomeBody(),
+      body: const SafeArea(child: HomeBody()),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           indicatorColor: kBgColor,

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:large/constants.dart';
+import 'package:large/helper/back4app.dart';
 import 'package:large/providers/products.dart';
+import 'package:large/screens/detail/detail_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:large/screens/home/home_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Back4App.init();
   runApp(const MyApp());
 }
 
@@ -35,6 +39,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
             backgroundColor: kBgColor,
             elevation: 0,
+            iconTheme: IconThemeData(color: kTextColor),
             titleTextStyle: TextStyle(
                 color: kTextColor,
                 fontSize: 20,
@@ -56,6 +61,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: const HomeScreen(),
+        routes: {
+          DetailScreen.routeName: (context) => const DetailScreen(),
+        },
       ),
     );
   }
